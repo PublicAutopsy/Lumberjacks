@@ -1,5 +1,8 @@
 /* Prototyping */
 
+var socket = io.connect(window.location.origin);
+
+
 //This will be set over sockets
 var player1 = pickCharacter(1,"Lumberjack One");
 var player2 = pickCharacter(2,"Lumberjack Two");
@@ -72,16 +75,21 @@ function stopFightListeners(){
 
 //Increases the block meter
 function block(){
-    blockCounter++;
-    console.log("BLOCK: " +blockCounter);
+    socket.emit('blockAttempt', {blockNum : 1});
 }
+
+socket.on('blockNum', function(block){
+    console.log("BLOCK: "+block);
+})
 
 
 //Increases the attack meter
 function attack(){
-    attackCounter++;
-    console.log("ATTACK: " + attackCounter);
+    socket.emit('attackAttempt', {attackNum : 1});
 }
+socket.on('attackNum', function(attack){
+    console.log("ATTACK: "+attack);
+})
 
 //Actions for a succesful hit
 function hit(blocker){
