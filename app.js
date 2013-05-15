@@ -39,7 +39,7 @@ io.sockets.on('connection', function (socket) {
     });
 
     function swing(attacker, blocker){
-        console.log("FIGHT"); 
+        console.log("FIGHT");
         setFightListeners();
         attackMode = setTimeout(function(){
             if (blockCounter > attackCounter){
@@ -64,9 +64,9 @@ io.sockets.on('connection', function (socket) {
         blockCounter = 0;
         socket.on('blockAttempt', function(block){
             console.log(block);
-            blockCount += block.blockNum;
-            console.log(blockCount);
-            io.sockets.in("room1").emit('blockNum', blockCount);
+            blockCounter += block.blockNum;
+            console.log(blockCounter);
+            io.sockets.in("room1").emit('blockNum', blockCounter);
         });
 
         socket.on('attackAttempt', function(attack){
