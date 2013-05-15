@@ -35,7 +35,7 @@ io.sockets.on('connection', function (socket) {
     socket.on('join', function(data){
         console.log(data.room);
         socket.join(data.room);
-        io.sockets.clients(data.room);
+        console.log(io.sockets.clients(data.room));
     });
 
     function swing(attacker, blocker){
