@@ -23,6 +23,7 @@ function pickCharacter(player,characterName){
 var blocker = document.getElementById('block');
 var attacker = document.getElementById('attack');
 var join = document.getElementById('join');
+var fight = document.getElementById('fight');
 var attackMode;
 
 var tapToBlock = Hammer(blocker).on("tap", function(e){block();});
@@ -35,11 +36,16 @@ var clickToJoin = Hammer(join).on("tap", function(){
     socket.emit('join', {room:"room1"});
 })
 
+var clickToFight = Hammer(join).on("tap", function(){
+    console.log("Fighting...");
+    socket.emit('fight', {attacker:player1, blocker:player2});
+});
 
 //Starts the fight sequence
 function fight(attacker, blocker){
     socket.in("room1").emit('fight', {attacker: attacker, blocker: blocker});
 }
+
 
 
 //Starts the fight timer and actions
