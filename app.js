@@ -78,10 +78,10 @@ io.sockets.on('connection', function (socket) {
     }
     function stopFightListeners(){
         socket.removeAllListeners('blockAttempt');
-
         socket.removeAllListeners('attackAttempt');
         attackCounter = 0;
         blockCounter = 0;
+        socket.emit.in("room1").('fightEnd');
     }
 
 

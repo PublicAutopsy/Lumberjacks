@@ -34,11 +34,17 @@ tapToAttack.enable(false);
 var clickToJoin = Hammer(join).on("tap", function(){
     console.log("Joining");
     socket.emit('join', {room:"room1"});
-})
+});
 
 var clickToFight = Hammer(fight).on("tap", function(){
     console.log("Fighting...");
     socket.emit('fight', {attacker:player1, blocker:player2});
+    setFightListeners();
+
+});
+
+socket.on('fightOver', function(){
+    stopFightListeners();
 });
 
 //Starts the fight sequence
@@ -71,16 +77,12 @@ function swing(attacker, blocker){
 }
 
 function setFightListeners(){
-    attackCounter = 0;
-    blockCounter = 0;
     tapToBlock.enable(true);
     tapToAttack.enable(true);
 }
 function stopFightListeners(){
     tapToBlock.enable(false);
     tapToAttack.enable(false);
-    attackCounter = 0;
-    blockCounter = 0;
 }
 
 //Increases the block meter
