@@ -44,6 +44,7 @@ var clickToFight = Hammer(fight).on("tap", function(){
 });
 
 socket.on('fightEnd', function(){
+    console.log("Fight Over");
     stopFightListeners();
 });
 

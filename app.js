@@ -29,8 +29,8 @@ if ('development' == app.get('env')) {
 }
 
 io.sockets.on('connection', function (socket) {
-    var blockCount =0;
-    var attackCount=0;
+    var blockCounter  =0;
+    var attackCounter =0;
 
     socket.on('join', function(data){
         console.log(data.room);
@@ -39,7 +39,7 @@ io.sockets.on('connection', function (socket) {
     });
 
     function swing(attacker, blocker){
-        console.log("FIGHT");
+        console.log("FIGHT"); 
         setFightListeners();
         attackMode = setTimeout(function(){
             if (blockCounter > attackCounter){
