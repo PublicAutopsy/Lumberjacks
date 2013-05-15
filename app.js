@@ -58,7 +58,7 @@ io.sockets.on('connection', function (socket) {
 
         },5000);
     }
- 
+
     function setFightListeners(){
         attackCounter = 0;
         blockCounter = 0;
@@ -81,7 +81,7 @@ io.sockets.on('connection', function (socket) {
         socket.removeAllListeners('attackAttempt');
         attackCounter = 0;
         blockCounter = 0;
-        socket.emit.in("room1").('fightEnd');
+        socket.in("room1").emit('fightEnd');
     }
 
 
