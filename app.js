@@ -58,7 +58,7 @@ io.sockets.on('connection', function (socket) {
 
         },5000);
     }
-
+ 
     function setFightListeners(){
         attackCounter = 0;
         blockCounter = 0;
