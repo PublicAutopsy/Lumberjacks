@@ -49,7 +49,7 @@ socket.on('fightOver', function(){
 
 //Starts the fight sequence
 function fight(attacker, blocker){
-    socket.in("room1").emit('fight', {attacker: attacker, blocker: blocker});
+    socket.emit('fight', {attacker: attacker, blocker: blocker});
 }
 
 
@@ -87,7 +87,7 @@ function stopFightListeners(){
 
 //Increases the block meter
 function block(){
-    socket.in("room1").emit('blockAttempt', {blockNum : 1});
+    socket.emit('blockAttempt', {blockNum : 1});
 }
 
 socket.on('blockNum', function(block){
@@ -97,7 +97,7 @@ socket.on('blockNum', function(block){
 
 //Increases the attack meter
 function attack(){
-    socket.in("room1").emit('attackAttempt', {attackNum : 1});
+    socket.emit('attackAttempt', {attackNum : 1});
 }
 socket.on('attackNum', function(attack){
     console.log("ATTACK: "+attack);
