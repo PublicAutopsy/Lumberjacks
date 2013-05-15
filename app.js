@@ -32,7 +32,8 @@ io.sockets.on('connection', function (socket) {
     var blockCount =0;
     var attackCount=0;
 
-    socket.on('join', function(data) {
+    socket.on('join', function(data){
+        console.log(data.room);
         socket.join(data.room);
         io.sockets.clients(data.room);
     });

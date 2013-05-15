@@ -30,11 +30,8 @@ var tapToAttack = Hammer(attacker).on("tap", function(e){attack();});
 tapToBlock.enable(false);
 tapToAttack.enable(false);
 
-
-var blockCounter = 0;
-var attackCounter = 0;
-
 var clickToJoin = Hammer(join).on("tap", function(){
+    console.log("Joining");
     socket.emit('join', {room:"room1"});
 })
 
