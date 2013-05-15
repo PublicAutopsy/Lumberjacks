@@ -36,7 +36,7 @@ var clickToJoin = Hammer(join).on("tap", function(){
     socket.emit('join', {room:"room1"});
 })
 
-var clickToFight = Hammer(join).on("tap", function(){
+var clickToFight = Hammer(fight).on("tap", function(){
     console.log("Fighting...");
     socket.emit('fight', {attacker:player1, blocker:player2});
 });
