@@ -71,9 +71,9 @@ io.sockets.on('connection', function (socket) {
 
         socket.on('attackAttempt', function(attack){
             console.log(attack);
-            attackCount += attack.attackNum;
-            console.log(attackCount);
-            io.sockets.in("room1").emit('attackNum', attackCount);
+            attackCounter += attack.attackNum;
+            console.log(attackCounter);
+            io.sockets.in("room1").emit('attackNum', attackCounter);
         });
     }
     function stopFightListeners(){
