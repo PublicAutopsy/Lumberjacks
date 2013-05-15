@@ -22,19 +22,26 @@ function pickCharacter(player,characterName){
 //Setting up some variables and listeners
 var blocker = document.getElementById('block');
 var attacker = document.getElementById('attack');
+var join = document.getElementById('join');
 var attackMode;
 
 var tapToBlock = Hammer(blocker).on("tap", function(e){block();});
 var tapToAttack = Hammer(attacker).on("tap", function(e){attack();});
+tapToBlock.enable(false);
+tapToAttack.enable(false);
+
+
 var blockCounter = 0;
 var attackCounter = 0;
 
-
+var clickToJoin = Hammer(join).on("tap", function(){
+    socket.emit('join', {room:"room1"});
+})
 
 
 //Starts the fight sequence
 function fight(attacker, blocker){
-    swing(attacker, blocker);
+    socket.in("room1").emit('fight', {attacker: attacker, blocker: blocker});
 }
 
 
@@ -75,7 +82,7 @@ function stopFightListeners(){
 
 //Increases the block meter
 function block(){
-    socket.emit('blockAttempt', {blockNum : 1});
+    socket.in("room1").emit('blockAttempt', {blockNum : 1});
 }
 
 socket.on('blockNum', function(block){
@@ -85,7 +92,7 @@ socket.on('blockNum', function(block){
 
 //Increases the attack meter
 function attack(){
-    socket.emit('attackAttempt', {attackNum : 1});
+    socket.in("room1").emit('attackAttempt', {attackNum : 1});
 }
 socket.on('attackNum', function(attack){
     console.log("ATTACK: "+attack);

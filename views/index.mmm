@@ -3,6 +3,7 @@
 
 <div style="background-color: #555; width:100px; height:100px;" id="block">Block</div>
 <div style="background-color: #eee; width:100px; height:100px;" id="attack">Attack</div>
-<div style="background-color: #e3e; width:100px; height:100px;" onclick="fight(player1, player2);" id="fight">Fight</div>
+<div style="background-color: #e3e; width:100px; height:100px;" id="fight">Fight</div>
+<div style="background-color: #3e3; width:100px; height:100px;" id="join">Join</div>
 
 {{>footer}}

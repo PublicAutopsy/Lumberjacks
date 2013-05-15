@@ -32,6 +32,11 @@ io.sockets.on('connection', function (socket) {
     var blockCount =0;
     var attackCount=0;
 
+    socket.on('join', function(data) {
+        socket.join(data.room);
+        io.sockets.clients(data.room);
+    });
+
     function swing(attacker, blocker){
         console.log("FIGHT");
         setFightListeners();
@@ -60,14 +65,14 @@ io.sockets.on('connection', function (socket) {
             console.log(block);
             blockCount += block.blockNum;
             console.log(blockCount);
-            io.sockets.emit('blockNum', blockCount);
+            io.sockets.in("room1").emit('blockNum', blockCount);
         });
 
         socket.on('attackAttempt', function(attack){
             console.log(attack);
             attackCount += attack.attackNum;
             console.log(attackCount);
-            io.sockets.emit('attackNum', attackCount);
+            io.sockets.in("room1").emit('attackNum', attackCount);
         });
     }
     function stopFightListeners(){
@@ -79,18 +84,8 @@ io.sockets.on('connection', function (socket) {
     }
 
 
-    socket.on('blockAttempt', function(block){
-        console.log(block);
-        blockCount += block.blockNum;
-        console.log(blockCount);
-        io.sockets.emit('blockNum', blockCount);
-    });
-
-    socket.on('attackAttempt', function(attack){
-        console.log(attack);
-        attackCount += attack.attackNum;
-        console.log(attackCount);
-        io.sockets.emit('attackNum', attackCount);
+    socket.on('fight', function(data){
+        swing(data.attacker, data.blocker);
     });
 
 });
