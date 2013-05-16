@@ -91,9 +91,10 @@ function block(){
     socket.emit('blockAttempt', {blockNum : 1});
 }
 
+
 socket.on('blockNum', function(block){
     console.log("BLOCK: "+block);
-})
+});
 
 
 //Increases the attack meter
@@ -102,7 +103,7 @@ function attack(){
 }
 socket.on('attackNum', function(attack){
     console.log("ATTACK: "+attack);
-})
+});
 
 //Actions for a succesful hit
 function hit(blocker){

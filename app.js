@@ -66,14 +66,14 @@ io.sockets.on('connection', function (socket) {
             console.log(block);
             blockCounter += block.blockNum;
             console.log(blockCounter);
-            io.sockets.in("room1").emit('blockNum', blockCounter);
+            io.sockets.in(socket.room).emit('blockNum', blockCounter);
         });
 
         socket.on('attackAttempt', function(attack){
             console.log(attack);
             attackCounter += attack.attackNum;
             console.log(attackCounter);
-            io.sockets.in("room1").emit('attackNum', attackCounter);
+            io.sockets.in(socket.room).emit('attackNum', attackCounter);
         });
     }
     function stopFightListeners(){
@@ -81,7 +81,39 @@ io.sockets.on('connection', function (socket) {
         socket.removeAllListeners('attackAttempt');
         attackCounter = 0;
         blockCounter = 0;
-        socket.in("room1").emit('fightEnd');
+        socket.in(socket.room).emit('fightEnd');
+    }
+
+    //Actions for a succesful hit
+    function hit(blocker){
+        console.log("HIT");
+        allocateDamage(blocker);
+    }
+
+//Actions for a successful block
+    function blocked(){
+        console.log("BLOCKED");
+    }
+
+//Actions for a successful parry
+    function parried(attacker){
+        console.log("PARRIED");
+        allocateDamage(attacker);
+    }
+
+//Checks to see if player is alive
+    function checkDead(player){
+        var life = player.health;
+        if (life <= 0){
+            console.log("PLAYER "+player.playerNum + " IS DEAD");
+        }
+    }
+
+//Distributes damage to a player and checks their living status
+    function allocateDamage(player){
+        player.health -= 1;
+        console.log(player);
+        checkDead(player);
     }
 
 
