@@ -8,7 +8,7 @@ body {margin:0; padding:0; background-image:url('../images/background.png'); bac
 .player1 {background-image:url('../images/player1.png'); float:left;}
 .player2 {background-image:url('../images/player2.png'); float:right;}
 
-.player1_hearts, .player2_hearts {overflow: auto;}
+.player1_hearts, .player2_hearts {overflow: auto; padding-top:20px;}
 .player1_hearts{float:left;}
 .player1_hearts{float:right;}
 
@@ -18,17 +18,17 @@ body {margin:0; padding:0; background-image:url('../images/background.png'); bac
 
 .heart {
     position: relative;
-    width: 100px;
-    height: 90px;
+   	width: 55px;
+	height: 90px;
 }
 .heart:before,
 .heart:after {
     position: absolute;
     content: "";
-    left: 50px;
-    top: 0;
-    width: 50px;
-    height: 80px;
+   	left: 21px;
+	top: 0;
+	width: 21px;
+	height: 34px;
     background: red;
     -moz-border-radius: 50px 50px 0 0;
     border-radius: 50px 50px 0 0;
