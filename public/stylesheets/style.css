@@ -1,21 +1,20 @@
-body {margin:0; padding:0; background-image:url('../images/background.png'); background-repeat:no-repeat; background-size:cover;}
-.container{
-	width: 960px; margin:auto;
-}
+body {margin:0; padding:0; background-image:url('../images/background.png'); background-repeat:no-repeat; background-size:cover; font-family: 'Chewy', cursive; font-size: 13px;}
+.container{width: 960px; margin:auto;}
 
+/* containers for player 1 and 2 */
+.player1, .player2{overflow: auto; position:relative; float:left; width:50%;}
 
-.player1, .player2 {height:479px; width:229px; background-repeat:no-repeat;}
-.player1 {background-image:url('../images/player1.png'); float:left;}
-.player2 {background-image:url('../images/player2.png'); float:right;}
+.player1_role, .player2_role {position:absolute; top:0; color:white;text-shadow: 3px 3px 0px rgba(34, 28, 28, 0.71); font-size: 3em;}
+.player2_role {right:14px;}
 
-.player1_hearts, .player2_hearts {overflow: auto; padding-top:20px;}
-.player1_hearts{float:left;}
-.player1_hearts{float:right;}
+/* styling for health heart container */
 
+.player1_hearts, .player2_hearts {overflow: auto; padding-top:40px; position:absolute; top:40px;}
+.player2_hearts{right:0;}
 .player1_hearts > div, .player2_hearts > div {float:left;}
 
 
-
+/* loads of css to generate the health hearts */
 .heart {
     position: relative;
    	width: 55px;
@@ -64,3 +63,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', end
          -o-transform-origin: 100% 100%;
             transform-origin :100% 100%;
 }
+
+
+
+/* render illustration for player 1 and 2 */
+.player1_figure, .player2_figure {height:479px; width:229px; background-repeat:no-repeat; margin-top:100px;}
+.player1_figure {background-image:url('../images/player1.png'); float:left;}
+.player2_figure {background-image:url('../images/player2.png'); float:right;}
