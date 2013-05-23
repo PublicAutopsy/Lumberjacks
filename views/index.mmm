@@ -1,9 +1,27 @@
 {{>header}}
+	<div class="container">	
+		<div class="background">
+			<div style="display:none;">
+				<div style="background-color: #555; width:100px; height:100px;" id="block">Block</div>
+				<div style="background-color: #eee; width:100px; height:100px;" id="attack">Attack</div>
+				<div style="background-color: #e3e; width:100px; height:100px;" id="fight">Fight</div>
+				<div style="background-color: #3e3; width:100px; height:100px;" id="join">Join</div>
+			</div>
 
+			<div class="player1_hearts">
+				<div class="heart"></div>
+				<div class="heart"></div>
+				<div class="heart"></div>
+			</div>
 
-<div style="background-color: #555; width:100px; height:100px;" id="block">Block</div>
-<div style="background-color: #eee; width:100px; height:100px;" id="attack">Attack</div>
-<div style="background-color: #e3e; width:100px; height:100px;" id="fight">Fight</div>
-<div style="background-color: #3e3; width:100px; height:100px;" id="join">Join</div>
+			<div class="player2_hearts">
+				<div class="heart"></div>
+				<div class="heart"></div>
+				<div class="heart"></div>
+			</div>
 
+			<div class="player1"></div>
+			<div class="player2"></div>
+		</div>
+	</div>
 {{>footer}}
