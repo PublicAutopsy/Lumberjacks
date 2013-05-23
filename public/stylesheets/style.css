@@ -1,0 +1,72 @@
+body {margin:0; padding:0; background-image:url('../images/background.png'); background-repeat:no-repeat; background-size:cover; font-family: 'Chewy', cursive; font-size: 13px;}
+.container{width: 960px; margin:auto;}
+
+/* containers for player 1 and 2 */
+.player1, .player2{overflow: auto; position:relative; float:left; width:50%;}
+
+.player1_role, .player2_role {position:absolute; top:0; color:white;text-shadow: 3px 3px 0px rgba(34, 28, 28, 0.71); font-size: 3em;}
+.player2_role {right:14px;}
+
+/* styling for health heart container */
+
+.player1_hearts, .player2_hearts {overflow: auto; padding-top:40px; position:absolute; top:40px;}
+.player2_hearts{right:0;}
+.player1_hearts > div, .player2_hearts > div {float:left;}
+
+
+/* loads of css to generate the health hearts */
+.heart {
+    position: relative;
+   	width: 55px;
+	height: 90px;
+}
+.heart:before,
+.heart:after {
+	background: #ff3019; /* Old browsers */
+background: -moz-linear-gradient(45deg,  #ff3019 0%, #cf0404 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#ff3019), color-stop(100%,#cf0404)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(45deg,  #ff3019 0%,#cf0404 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(45deg,  #ff3019 0%,#cf0404 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(45deg,  #ff3019 0%,#cf0404 100%); /* IE10+ */
+background: linear-gradient(45deg,  #ff3019 0%,#cf0404 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    position: absolute;
+    content: "";
+   	left: 21px;
+	top: 0;
+	width: 21px;
+	height: 34px;
+    -moz-border-radius: 50px 50px 0 0;
+    border-radius: 50px 50px 0 0;
+    -webkit-transform: rotate(-45deg);
+       -moz-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+         -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-transform-origin: 0 100%;
+       -moz-transform-origin: 0 100%;
+        -ms-transform-origin: 0 100%;
+         -o-transform-origin: 0 100%;
+            transform-origin: 0 100%;
+}
+.heart:after {
+    left: 0;
+    -webkit-transform: rotate(45deg);
+       -moz-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+         -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-transform-origin: 100% 100%;
+       -moz-transform-origin: 100% 100%;
+        -ms-transform-origin: 100% 100%;
+         -o-transform-origin: 100% 100%;
+            transform-origin :100% 100%;
+}
+
+
+
+/* render illustration for player 1 and 2 */
+.player1_figure, .player2_figure {height:479px; width:229px; background-repeat:no-repeat; margin-top:100px;}
+.player1_figure {background-image:url('../images/player1.png'); float:left;}
+.player2_figure {background-image:url('../images/player2.png'); float:right;}
