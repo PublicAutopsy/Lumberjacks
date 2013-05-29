@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="spriteStyle.css" media="screen"/>
+    <script src="javascripts/jquery-2.0.1.min.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="fighter" id="leftJack"></div>
+<div id="rightJack"></div>
+
+
+
+<script src="javascripts/jquery.spritely-0.6.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    function idle(charToIdle){
+        console.log("Idle Animating on "+ charToIdle.attr("id"));
+        charToIdle.sprite({fps: 2, no_of_frames: 2});
+    }
+    function clearAnaimation(charToStop){
+        console.log("stopping Animation on "+ charToStop.attr("id"));
+        charToStop.destroy();
+    }
+
+    function sayHello(name){
+        console.log("Hello, "+ name);
+    }
+
+    function cube(theNumber){
+        return Math.pow(theNumber, 3)
+
+    }
+
+    function multiply(number, otherNumber){
+        var result = number * otherNumber;
+        return result;
+    }
+</script>
+</body>
+</html>
