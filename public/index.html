@@ -5,9 +5,13 @@
     <script src="javascripts/jquery-2.0.1.min.js" type="text/javascript"></script>
 </head>
 <body>
-<div class="fighter" id="leftJack"></div>
-<div id="rightJack"></div>
 
+<div class="fighter" id="leftYellowJack"></div>
+<div class="fighter" id="leftYellowJackBlock"></div>
+<div class="fighter" id="leftYellowJackAttack"></div>
+<div class="fighter" id="rightRedJack"></div>
+<div class="fighter" id="rightRedJackBlock"></div>
+<div class="fighter" id="rightRedJackAttack"></div>
 
 
 <script src="javascripts/jquery.spritely-0.6.js" type="text/javascript"></script>
@@ -22,18 +26,14 @@
         charToStop.destroy();
     }
 
-    function sayHello(name){
-        console.log("Hello, "+ name);
+    function block(charToBlock){
+        console.log("Blocking Animating on "+ charToBlock.attr("id"));
+        charToBlock.sprite({fps: 2, no_of_frames: 2});
     }
 
-    function cube(theNumber){
-        return Math.pow(theNumber, 3)
-
-    }
-
-    function multiply(number, otherNumber){
-        var result = number * otherNumber;
-        return result;
+    function attack(charToAttack){
+        console.log("Attack Animating on "+ charToAttack.attr("id"));
+        charToAttack.sprite({fps: 2, no_of_frames: 2});
     }
 </script>
 </body>

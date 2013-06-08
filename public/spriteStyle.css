@@ -1,13 +1,49 @@
 *{}
 body,html{}
+/*RED JACK*/
+#rightRedJack{
+    float:left;
+    background-image: url('images/sprites/idle/redRightIdle.png');
+    width:220px;
+    height:479px;
+}
 
-#leftJack{
-    background-image: url('images/sprites/idle/redLeftIdle.png');
-    width:229px;
+#rightRedJackBlock{
+    float:left;
+    background-image: url('images/sprites/block/redRightBlock.png');
+    width:220px;
     height:479px;
 }
-#rightJack{
-    background-image: url('images/sprites/idle/redLeftIdle.png');
-    width:229px;
+
+#rightRedJackAttack{
+    float:left;
+    background-image: url('images/sprites/attack/redRightAttack.png');
+    width:220px;
     height:479px;
 }
+
+/*YELLOW JACK*/
+
+#leftYellowJack{
+    float:left;
+    background-image: url('images/sprites/idle/yellowLeftIdle.png');
+    width:220px;
+    height:479px;
+}
+
+#leftYellowJackBlock{
+    float:left;
+    background-image: url('images/sprites/block/yellowLeftBlock.png');
+    width:220px;
+    height:479px;
+}
+
+#leftYellowJackAttack{
+    float:left;
+    background-image: url('images/sprites/attack/yellowLeftAttack.png');
+    width:220px;
+    height:479px;
+}
+
+
+
