@@ -1,39 +1,58 @@
 {{>header}}
-	<div class="container">	
+
+<div id="gameEnd">
+    <div class="wrapper">
+        GAME OVER
+    </div>
+</div>
+
+	<div class="container">
+<div class="mobile" style="position: absolute;">
+    <div style="background-color: #555; width:100px; height:100px;" id="block">Block</div>
+    <div style="background-color: #eee; width:100px; height:100px;" id="attack">Attack</div>
+    <div style="background-color: #e3e; width:100px; height:100px;" id="fight">Fight</div>
+
+</div>
 		<div class="background">
-			<div style="display:none;">
-				<div style="background-color: #555; width:100px; height:100px;" id="block">Block</div>
-				<div style="background-color: #eee; width:100px; height:100px;" id="attack">Attack</div>
-				<div style="background-color: #e3e; width:100px; height:100px;" id="fight">Fight</div>
-				<div style="background-color: #3e3; width:100px; height:100px;" id="join">Join</div>
-			</div>
-			<section class="player1">
-				<h1 class="player1_role">ATTACKER<h2>
 
-				<!-- PLAYER 1 HEALTH METER-->
-				<div class="player1_hearts">
-					<div class="heart"></div>
-					<div class="heart"></div>
-					<div class="heart"></div>
-				</div>
+            <div class="desktop">
+                <section class="player1">
+                    <h1 class="player1_role">ATTACKER<h2>
 
-				<!-- Player1 Illustratored CHARACTER-->
-				<div class="player1_figure"></div>
-			</section>
+                        <!-- PLAYER 1 HEALTH METER-->
+                        <div class="player1_hearts">
+                            <div class="heart"></div>
+                            <div class="heart"></div>
+                            <div class="heart"></div>
+                        </div>
 
+                        <!-- Player1 Illustratored CHARACTER-->
+                        <div class="player1_figure" id="leftYellowJack"></div>
+                </section>
+                <section class="player2">
+                    <!-- PLAYER 2 HEALTH METER-->
+                    <h1 class="player2_role">BLOCKER<h2>
+                        <div class="player2_hearts">
+                            <div class="heart"></div>
+                            <div class="heart"></div>
+                            <div class="heart"></div>
+                        </div>
 
-			<section class="player2">
-				<!-- PLAYER 2 HEALTH METER-->
-				<h1 class="player2_role">BLOCKER<h2>
-				<div class="player2_hearts">
-					<div class="heart"></div>
-					<div class="heart"></div>
-					<div class="heart"></div>
-				</div>
+                        <!-- Player2 Illustratored  CHARACTER-->
+                        <div class="player2_figure" id="rightRedJack"></div>
+                </section>
+            </div>
 
-				<!-- Player2 Illustratored  CHARACTER-->
-				<div class="player2_figure"></div>
-			</section>
 		</div>
 	</div>
+<script type="text/javascript">
+    function idle(charToIdle){
+        console.log("Idle Animating on "+ charToIdle);
+        charToIdle.sprite({fps: 2, no_of_frames: 2});
+    }
+
+    idle( $(".player1_figure") );
+    idle( $(".player2_figure") );
+
+</script>
 {{>footer}}

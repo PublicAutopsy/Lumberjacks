@@ -29,15 +29,23 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-io.sockets.on('connection', function (socket) {
-    var blockCounter  =0;
-    var attackCounter =0;
+var userNum = 0;
 
-    socket.on('join', function(data){
-        console.log(data.room);
-        socket.join(data.room);
-        console.log(io.sockets.clients(data.room));
-    });
+io.sockets.on('connection', function (socket) {
+
+    function pickCharacter(player,characterName){
+        var Player = {
+            playerNum: player,
+            character: characterName,
+            health: 3
+        }
+        return Player;
+    }
+
+    var playerID = pickCharacter(userNum,"user#"+userNum++)
+    console.log(playerID);
+    var blockCounter  = 0;
+    var attackCounter = 0;
 
     function swing(attacker, blocker){
         console.log("FIGHT");
@@ -47,14 +55,17 @@ io.sockets.on('connection', function (socket) {
                 if ((blockCounter - attackCounter) >= 10 ){
                     stopFightListeners();
                     parried(attacker);
+                    io.sockets.in(socket.room).emit('parried');
 
                 } else {
                     stopFightListeners();
                     blocked();
+                    io.sockets.in(socket.room).emit('blocked');
                 }
             } else if (attackCounter > blockCounter){
                 stopFightListeners();
                 hit(blocker);
+                io.sockets.in(socket.room).emit('hit');
             }
 
         },5000);

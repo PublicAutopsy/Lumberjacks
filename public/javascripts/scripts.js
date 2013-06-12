@@ -22,7 +22,6 @@ function pickCharacter(player,characterName){
 //Setting up some variables and listeners
 var blocker = document.getElementById('block');
 var attacker = document.getElementById('attack');
-var join = document.getElementById('join');
 var fight = document.getElementById('fight');
 var attackMode;
 
@@ -31,10 +30,6 @@ var tapToAttack = Hammer(attacker).on("tap", function(e){attack();});
 tapToBlock.enable(false);
 tapToAttack.enable(false);
 
-var clickToJoin = Hammer(join).on("tap", function(){
-    console.log("Joining");
-    socket.emit('join', {room:"room1"});
-});
 
 var clickToFight = Hammer(fight).on("tap", function(){
     console.log("Fighting...");
@@ -47,6 +42,22 @@ socket.on('fightEnd', function(){
     console.log("Fight Over");
     stopFightListeners();
 });
+
+socket.on('hit',function(){
+    hit(player2);
+    console.log("hit");
+    $(".player2_hearts .heart").eq(0).remove();
+});
+socket.on('parried',function(){
+    parried(player1);
+    console.log("parried");
+    $(".player1_hearts .heart").eq(0).remove();
+});
+socket.on('blocked',function(){
+    blocked();
+    console.log("blocked");
+});
+
 
 //Starts the fight sequence
 function fight(attacker, blocker){
@@ -127,6 +138,7 @@ function checkDead(player){
     var life = player.health;
     if (life <= 0){
         console.log("PLAYER "+player.playerNum + " IS DEAD");
+        $("#gameEnd").show();
     }
 }
 
@@ -137,3 +149,11 @@ function allocateDamage(player){
     checkDead(player);
 }
 
+$(document).ready(function(){
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ){
+        $(".background").hide();
+        $("body").css("background", "none");
+    } else{
+        $(".mobile").hide();
+    }
+});

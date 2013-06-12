@@ -8,5 +8,7 @@
     <link rel="stylesheet" href="/stylesheets/style.css"/>
     <script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="/javascripts/hammer.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery-2.0.1.min.js"></script>
+    <script type="text/javascript" src="/javascripts/jquery.spritely-0.6.js"></script>
 </head>
 <body>

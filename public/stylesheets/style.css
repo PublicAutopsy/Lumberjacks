@@ -67,6 +67,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', end
 
 
 /* render illustration for player 1 and 2 */
-.player1_figure, .player2_figure {height:479px; width:229px; background-repeat:no-repeat; margin-top:100px;}
-.player1_figure {background-image:url('../images/player1.png'); float:left;}
-.player2_figure {background-image:url('../images/player2.png'); float:right;}
+.player1_figure, .player2_figure {margin-top:100px;}
+
+
+#rightRedJack{
+    background-image: url('../images/sprites/idle/redRightIdle.png');
+    width:220px;
+    height:479px;
+}
+#leftYellowJack{
+    background-image: url('../images/sprites/idle/yellowLeftIdle.png');
+    width:220px;
+    height:479px;
+}
+
+#gameEnd{
+    width: 500px;
+    display: none;
+    position: absolute;
+    margin-left: -250px;
+    text-align: center;
+    left: 50%;
+    font-size: 70px;
+}
