@@ -1,5 +1,4 @@
 <h1>AxeMen</h1>
-<hr>
 <p>
 A simple MultiPlayer game using Node.js and Socket.io
 </p>
